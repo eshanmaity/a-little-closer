@@ -5,440 +5,739 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090b20">
-<meta name="description" content="A little countdown to a very special birthday.">
+<meta name="description" content="A little countdown to someone very special.">
 <title>A Little Closer ✦</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
 
-*{box-sizing:border-box}
-
-body{
- margin:0;min-height:100vh;padding:24px 14px;
- display:flex;align-items:center;justify-content:center;
- font-family:'DM Sans',sans-serif;color:#f9f3ff;
- background:radial-gradient(circle at top,#29204b,#090b20 65%);
- overflow-x:hidden;
+* {
+  box-sizing: border-box;
 }
 
-.stars{position:fixed;inset:0;pointer-events:none}
-.star{
- position:absolute;width:3px;height:3px;background:white;
- border-radius:50%;box-shadow:0 0 12px white;
- animation:twinkle 2.5s infinite alternate;
-}
-@keyframes twinkle{to{opacity:.2;transform:scale(.6)}}
-
-.card{
- position:relative;width:100%;max-width:650px;
- padding:38px 24px;text-align:center;
- border:1px solid #ffffff24;border-radius:25px;
- background:#15152dbb;backdrop-filter:blur(12px);
- box-shadow:0 20px 70px #0005;
+html {
+  scroll-behavior: smooth;
 }
 
-.eyebrow{
- font-size:.7rem;letter-spacing:4px;color:#ffb9d8;
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 35px 15px;
+  font-family: 'DM Sans', sans-serif;
+  color: #f9f3ff;
+  background:
+    radial-gradient(ellipse at top, #30234f 0%, #15132d 42%, #090b20 100%);
+  overflow-x: hidden;
 }
-.moon{font-size:52px;color:#d3c1ff;margin:18px 0}
-h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:500}
-h1{font-size:clamp(2rem,7vw,3.3rem);line-height:1.15;margin:10px 0}
-h2{font-size:clamp(2rem,7vw,3rem)}
-.intro{color:#c9c4df;line-height:1.8;max-width:460px;margin:15px auto}
 
-.timer{
- display:flex;justify-content:center;align-items:flex-start;
- gap:clamp(5px,2vw,17px);margin:35px 0 25px;
+.stars {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
-.unit{display:flex;flex-direction:column;gap:7px;min-width:45px}
-.number{font-size:clamp(1.7rem,6vw,3rem);font-variant-numeric:tabular-nums}
-.label{font-size:.63rem;color:#bcb5d6;letter-spacing:1.5px;text-transform:uppercase}
-.colon{font-size:clamp(1.5rem,5vw,2.5rem);color:#ffb9d8}
 
-.message{min-height:50px;line-height:1.8;color:#f5d8e8}
-button{
- padding:13px 18px;border:0;border-radius:30px;
- cursor:pointer;font-size:.9rem;font-weight:600;
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #fff;
+  animation: twinkle 2.5s infinite alternate;
 }
-button:disabled{opacity:.7;cursor:wait}
-.primary{background:linear-gradient(110deg,#ffb9d8,#d3c1ff);color:#25152d}
-.secondary{background:#ffffff0c;border:1px solid #ffffff30;color:white}
-.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:25px}
-.status{font-size:.75rem;line-height:1.6;color:#aaa5c5;margin-top:17px}
-.note,.birthday{
- margin-top:25px;padding:22px;border-radius:17px;
- border:1px solid #ffffff25;background:#ffffff08;line-height:1.8;
-}
-.note{text-align:left}
-.signature{text-align:right;color:#c9c4df;font-style:italic}
-.birthday{border-color:#ffb9d855}
-.birthday p{line-height:1.9}
-.hidden{display:none}
-footer{font-size:.7rem;color:#9691b3;margin-top:30px}
 
-@media(max-width:380px){
- .card{padding:30px 14px}
- .unit{min-width:38px}
- .label{font-size:.55rem;letter-spacing:1px}
- .timer{gap:4px}
+@keyframes twinkle {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 42px 25px;
+  text-align: center;
+  border: 1px solid #ffffff24;
+  border-radius: 26px;
+  background: #15152ddd;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 70px #0005;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: #ffb9d8;
+  line-height: 1.8;
+}
+
+.moon {
+  font-size: 54px;
+  color: #d3c1ff;
+  margin: 18px 0;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  line-height: 1.2;
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.2;
+}
+
+.intro {
+  color: #c9c4df;
+  line-height: 1.9;
+  max-width: 490px;
+  margin: 18px auto;
+  font-size: 0.98rem;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(5px, 2vw, 17px);
+  margin: 38px 0 28px;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 48px;
+}
+
+.number {
+  font-size: clamp(1.7rem, 6vw, 3.1rem);
+  font-variant-numeric: tabular-nums;
+  color: #fff4fb;
+}
+
+.label {
+  font-size: 0.63rem;
+  color: #bcb5d6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.colon {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #ffb9d8;
+}
+
+.message {
+  min-height: 45px;
+  line-height: 1.9;
+  color: #f5d8e8;
+  margin: 22px auto;
+}
+
+.divider {
+  width: 75px;
+  height: 1px;
+  margin: 30px auto;
+  background: linear-gradient(90deg, transparent, #ffb9d8, transparent);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.birthday {
+  margin-top: 32px;
+  animation: reveal 1.4s ease both;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.birthday-heading {
+  margin-bottom: 15px;
+}
+
+.birthday-subtitle {
+  color: #ffb9d8;
+  font-style: italic;
+  margin-bottom: 35px;
+}
+
+.letter {
+  text-align: left;
+  padding: 25px;
+  border: 1px solid #ffffff20;
+  border-radius: 20px;
+  background: #ffffff07;
+}
+
+.letter p {
+  color: #e7e0f3;
+  font-size: 0.96rem;
+  line-height: 2;
+  margin: 0 0 22px;
+}
+
+.letter p:last-child {
+  margin-bottom: 0;
+}
+
+.letter .greeting {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  color: #ffb9d8;
+}
+
+.letter .closing {
+  color: #ffb9d8;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.signature {
+  text-align: right;
+  color: #d3c1ff !important;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #9691b3;
+  margin: 28px 0 10px;
+  line-height: 1.8;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .card {
+    padding: 30px 14px;
+  }
+
+  .unit {
+    min-width: 37px;
+  }
+
+  .timer {
+    gap: 4px;
+  }
+
+  .label {
+    font-size: 0.53rem;
+    letter-spacing: 0.8px;
+  }
+
+  .letter {
+    padding: 19px 15px;
+  }
+
+  .letter p {
+    font-size: 0.91rem;
+    line-height: 1.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="stars" id="stars"></div>
 
-<main class="card">
- <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
- <div class="moon">☾</div>
+<main class="container">
 
- <h1 id="headline">The universe is counting down to you.</h1>
- <p class="intro" id="intro">
-  One more day until someone very special gets to be celebrated.
- </p>
+  <section class="card" id="countdownCard">
 
- <section class="timer">
-  <div class="unit"><span class="number" id="days">00</span><span class="label">Days</span></div>
-  <span class="colon">:</span>
-  <div class="unit"><span class="number" id="hours">00</span><span class="label">Hours</span></div>
-  <span class="colon">:</span>
-  <div class="unit"><span class="number" id="minutes">00</span><span class="label">Minutes</span></div>
-  <span class="colon">:</span>
-  <div class="unit"><span class="number" id="seconds">00</span><span class="label">Seconds</span></div>
- </section>
+    <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
 
- <p class="message" id="message">
-  Some days are worth counting down to. This is one of them. ✨
- </p>
+    <div class="moon">☾</div>
 
- <div class="buttons">
-  <button class="primary" id="enable">Turn on reminders ✦</button>
-  <button class="secondary" id="testNotification">Test notification ♡</button>
-  <button class="secondary" id="showNote">A tiny note</button>
- </div>
+    <h1 id="headline">The universe is counting down to you.</h1>
 
- <p class="status" id="status">
-  Enable notifications to test reminders. Automatic delivery requires the page to be running.
- </p>
+    <p class="intro" id="intro">
+      One more day until someone very special gets to be celebrated.
+      Until then, let's count the little moments.
+    </p>
 
- <section class="note hidden" id="note">
-  <p>Hey you, ♡</p>
-  <p>
-   I'm not telling you everything just yet. For now, just know that
-   someone is very excited for your day to arrive. Come back as the
-   clock gets closer. 🌙
-  </p>
-  <p class="signature">— someone who can't wait to celebrate you</p>
- </section>
+    <section class="timer" id="timer" aria-label="Birthday countdown">
+      <div class="unit">
+        <span class="number" id="days">00</span>
+        <span class="label">Days</span>
+      </div>
 
- <section class="birthday hidden" id="birthday">
-  <p class="eyebrow">IT'S YOUR DAY</p>
-  <h2>Happy Birthday, Adrija! ♡</h2>
-  <p>
-   Today, the universe gets to celebrate one of its favourite people.
-   I hope this year is gentle with you, full of laughter, and brings
-   you a thousand little reasons to smile.
-  </p>
-  <p style="color:#ffb9d8">
-   You deserve to feel loved, today and every day. ✨
-  </p>
- </section>
+      <span class="colon">:</span>
 
- <footer>made with a little patience, a lot of love, and a countdown ♡</footer>
+      <div class="unit">
+        <span class="number" id="hours">00</span>
+        <span class="label">Hours</span>
+      </div>
+
+      <span class="colon">:</span>
+
+      <div class="unit">
+        <span class="number" id="minutes">00</span>
+        <span class="label">Minutes</span>
+      </div>
+
+      <span class="colon">:</span>
+
+      <div class="unit">
+        <span class="number" id="seconds">00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </section>
+
+    <p class="message" id="message">
+      Some days are worth counting down to. This is one of them. ✨
+    </p>
+
+    <div class="divider"></div>
+
+    <section class="birthday hidden" id="birthday">
+
+      <p class="eyebrow">IT'S YOUR DAY ♡</p>
+
+      <h2 class="birthday-heading">Happy Birthday, Adrija!</h2>
+
+      <p class="birthday-subtitle">
+        The wait is over. Your day has finally arrived. ♡
+      </p>
+
+      <div class="letter">
+
+        <p class="greeting">Happy Birthday, my love. ♡</p>
+
+        <p>
+          And finally, the wait is over. It's 25th October, your day,
+          the day someone as beautiful as you came into this world.
+          And honestly, I don't even know where to begin, because how
+          do I put everything I feel for you into words? How do I
+          explain what you mean to me without feeling like words will
+          never be enough? Maybe I won't be able to explain everything
+          perfectly, but today, I want to try.
+        </p>
+
+        <p>
+          First of all, happy birthday to my favourite person. The
+          person who has become such a special part of my life that
+          sometimes I genuinely wonder how someone can mean so much
+          to another person. You have your own little place in my
+          heart, a place that belongs to you and nobody else. And no
+          matter how ordinary a day might seem, the thought of you
+          can make it feel a little more special. It's funny how one
+          person can become such a big part of your everyday life
+          without you even realising when it happened. And then one
+          day, you look back and realise that they have become a part
+          of so many of your thoughts, your smiles, your plans, and
+          your little moments of happiness.
+        </p>
+
+        <p>
+          That's what you have become to me, Adrija.
+        </p>
+
+        <p>
+          I wish you could see yourself through my eyes, even for just
+          a minute. Maybe then you'd understand why I adore you so
+          much. You'd understand why the smallest things about you
+          can make me smile, why I remember little details about you,
+          and why sometimes just knowing that you're there is enough
+          to make a difficult day feel a little easier. You don't
+          have to do anything extraordinary to be special to me. You
+          don't have to be perfect, you don't have to have everything
+          figured out, and you don't have to be happy all the time.
+          You can have your bad days, your confusing moments, your
+          insecurities, your fears, and all the little things you
+          might not always show the world. I want you to know that
+          you deserve love through all of it, not just on the days
+          when everything is going right.
+        </p>
+
+        <p>
+          And if there's one thing I wish for you this birthday, it's
+          that life becomes kinder to you. I hope this new chapter
+          brings you the kind of happiness that stays, the kind of
+          peace that makes you feel safe within yourself, and the
+          kind of memories that you'll look back on years from now
+          with the biggest smile. I hope you achieve the things you've
+          been dreaming about, even the ones you haven't told anyone
+          about yet. I hope you discover new things about yourself,
+          become more confident in who you are, and never feel like
+          you have to make yourself smaller to fit into someone
+          else's expectations.
+        </p>
+
+        <p>
+          I hope you laugh until your stomach hurts. I hope you have
+          days when everything feels right for no particular reason.
+          I hope you find comfort in the little things, get surprised
+          by beautiful moments when you least expect them, and always
+          have something to look forward to. And whenever life gets
+          difficult, I hope you remember that one bad day doesn't
+          define your life, one mistake doesn't define your worth,
+          and one difficult chapter doesn't mean your story isn't
+          beautiful.
+        </p>
+
+        <p>
+          Because you deserve so many beautiful things, my love.
+          More than you probably realise.
+        </p>
+
+        <p>
+          And now, coming to us.
+        </p>
+
+        <p>
+          I don't know what the future has planned for us. Nobody
+          really does. We can make a thousand plans, imagine a
+          thousand possibilities, and still have no idea what
+          tomorrow will look like. But I do know that what I feel
+          for you is real, and I know that I'm grateful for the
+          moments we get to share. I want more of those moments.
+          More conversations that start with absolutely nothing and
+          somehow last forever. More random laughs, more silly
+          arguments that we eventually laugh about, more pictures,
+          more memories, more little updates about our days, and
+          more moments when we realise that even doing nothing
+          together can feel special.
+        </p>
+
+        <p>
+          I want to celebrate your achievements and watch you become
+          the person you've always wanted to be. I want to listen to
+          your stories, even the ones you've probably told me a
+          hundred times. I want to be there when you're excited about
+          something and when you need someone to listen without
+          trying to fix everything. I want to know about the things
+          that make you happy, the things that worry you, the things
+          that make you angry, and the little things that make you
+          feel loved. I want to keep discovering new sides of you
+          because I know that no matter how much I learn about
+          someone, there's always something more to understand.
+        </p>
+
+        <p>
+          And most importantly, I want you to feel that you can be
+          yourself with me. You don't have to pretend to be okay when
+          you're not. You don't have to hide your feelings just
+          because you think they're too much. You don't have to be
+          strong every single day. I hope I can be someone with whom
+          you can be honest, someone who listens, someone who tries
+          to understand, and someone who keeps learning how to love
+          you better.
+        </p>
+
+        <p>
+          I know I'm not perfect either. I'll have my own flaws, my
+          own moments of overthinking, and days when I don't know
+          how to express what I'm feeling properly. But I want to
+          keep growing, not just as a person, but also in the way I
+          understand you and care for you. Because loving someone
+          isn't only about saying beautiful things. It's also about
+          showing up, being patient, learning from mistakes,
+          respecting each other, and choosing to understand each
+          other even when things aren't easy.
+        </p>
+
+        <p>
+          And I hope we get to experience so many more birthdays
+          together. I hope that years from now, we can look back at
+          this little website and laugh about how I made an entire
+          countdown just to make your birthday feel a little more
+          special. Maybe you'll tease me about it. Maybe I'll pretend
+          that it wasn't a big deal, even though you and I will both
+          know how much thought went into it. But I hope this becomes
+          one of those little memories that stays with us.
+        </p>
+
+        <p>
+          Because that's what I wanted this little surprise to be.
+          Not just a countdown on a screen, not just a message that
+          appears when the clock strikes twelve, but a tiny reminder
+          that someone was looking forward to your birthday long
+          before the day actually arrived. Someone wanted to make
+          the wait feel special. Someone wanted to give you a little
+          reason to smile the moment your day began.
+        </p>
+
+        <p>
+          And that someone is me. ♡
+        </p>
+
+        <p>
+          Adrija, thank you for being you. Thank you for the moments
+          we've shared, for the smiles you've brought into my life,
+          and for being someone I can look forward to talking to.
+          Thank you for the little things that you might not even
+          realise I notice. Sometimes it's the smallest moments that
+          end up meaning the most, and I hope you know that the
+          little things you do can matter more than you think.
+        </p>
+
+        <p>
+          Today, I hope you feel loved. I hope you feel appreciated.
+          I hope you look at yourself and recognise just how much
+          you have to offer this world. And even when today is over,
+          when the birthday wishes slow down and life goes back to
+          its usual routine, I hope you remember that your worth
+          doesn't depend on a special occasion. You deserve affection,
+          kindness, respect, and happiness on ordinary Tuesdays just
+          as much as you deserve them on your birthday.
+        </p>
+
+        <p>
+          You deserve to be celebrated for who you are, not just for
+          the day you were born.
+        </p>
+
+        <p>
+          So here's to you, my love. Here's to another year of
+          growing, learning, laughing, dreaming, and becoming an
+          even more wonderful version of yourself. Here's to new
+          experiences, unexpected happiness, dreams coming true,
+          and memories we haven't made yet. Here's to the little
+          things that make life beautiful and the people who make
+          those little things worth remembering.
+        </p>
+
+        <p>
+          And here's to us, too. To everything we've experienced
+          so far, to everything we're still learning, and to all
+          the beautiful moments that may be waiting for us ahead.
+        </p>
+
+        <p>
+          I wish I could pause time for a little while today, just
+          so you could take in all the love being sent your way.
+          But since I can't do that, I'll settle for this little
+          corner of the internet, this tiny surprise, and these
+          words that still don't feel like enough.
+        </p>
+
+        <p>
+          Happy birthday once again, Adrija Chakrabarty. My favourite
+          girl, my special person, and someone I'm genuinely so glad
+          exists.
+        </p>
+
+        <p>
+          I hope this birthday gives you a hundred reasons to smile.
+          I hope the coming year gives you a thousand more. I hope
+          you keep finding beautiful things in the world, and I hope
+          you never forget that you are one of those beautiful things
+          yourself.
+        </p>
+
+        <p>
+          No matter how many birthdays come and go, I hope you always
+          keep that little spark in you. Keep dreaming, keep laughing,
+          keep being your wonderfully imperfect self, and keep
+          becoming everything you want to be.
+        </p>
+
+        <p>
+          And if there's one final thing I want you to take away from
+          this very long message, it's this:
+        </p>
+
+        <p>
+          You don't have to do anything extraordinary to deserve
+          love. You don't have to earn your place in someone's heart
+          by being perfect. You are allowed to simply exist, to grow
+          at your own pace, to make mistakes, to change your mind,
+          and to figure life out one day at a time.
+        </p>
+
+        <p>
+          And I hope that, in all the beautiful and complicated days
+          that life brings, you always find reasons to believe that
+          wonderful things are still ahead of you.
+        </p>
+
+        <p>
+          Happy Birthday, Adrija. ♡
+        </p>
+
+        <p>
+          I love you. More than this little website could ever
+          explain, more than this countdown could ever measure,
+          and more than these words could ever fully express.
+        </p>
+
+        <p>
+          Today is your day. Enjoy every second of it, smile that
+          beautiful smile of yours, make the loveliest memories,
+          and remember that somewhere, someone is incredibly happy
+          that you were born.
+        </p>
+
+        <p>
+          And that someone will always be cheering for you.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="closing">
+          With all my love,<br>
+          Your Eshan. ♡
+        </p>
+
+      </div>
+    </section>
+
+  </section>
+
+  <footer>
+    made with a little patience, a lot of love, and a countdown ♡
+  </footer>
+
 </main>
 
 <script>
-"use strict";
-
 const target = new Date("2026-10-25T00:00:00+05:30").getTime();
-const finalHour = new Date("2026-10-24T23:00:00+05:30").getTime();
 
 const $ = id => document.getElementById(id);
 
-let previousHour = null;
-let previousMinute = null;
-let birthdayNotified = false;
-let notificationsEnabled = false;
-let serviceWorkerRegistration = null;
-
 const sweetMessages = [
- "Some days are worth counting down to. This is one of them. ✨",
- "A little closer to your day, a little more excited over here. ♡",
- "The clock is moving, and someone is quietly smiling about you.",
- "In case you forgot: you are very, very worth celebrating. 🌙",
- "Not long now. Save a little room for a surprise. 💌",
- "Every passing hour is one hour closer to your birthday."
+  "Some days are worth counting down to. This is one of them. ✨",
+  "A little closer to your day, a little more excited over here. ♡",
+  "The clock is moving, and someone is quietly smiling about you.",
+  "In case you forgot: you are very, very worth celebrating. 🌙",
+  "Not long now. Save a little room for a surprise. 💌",
+  "Every passing hour is one hour closer to your birthday."
 ];
 
-/*
- Register the service worker.
- The path is relative so it works with a GitHub Pages project site.
-*/
-async function registerServiceWorker() {
- if (!("serviceWorker" in navigator)) {
-  $("status").textContent =
-   "This browser does not support service workers. Try a supported browser.";
-  return null;
- }
+let lastMessageIndex = -1;
+let birthdayShown = false;
 
- try {
-  serviceWorkerRegistration =
-   await navigator.serviceWorker.register("./sw.js");
+function updateCountdown() {
+  const now = Date.now();
+  const remaining = target - now;
 
-  await navigator.serviceWorker.ready;
+  if (remaining <= 0) {
+    $("days").textContent = "00";
+    $("hours").textContent = "00";
+    $("minutes").textContent = "00";
+    $("seconds").textContent = "00";
 
-  return serviceWorkerRegistration;
- } catch (error) {
-  console.error("Service worker registration failed:", error);
+    showBirthday();
+    return;
+  }
 
-  $("status").textContent =
-   "Could not set up the notification service. Refresh the page and try again.";
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
 
-  return null;
- }
+  $("days").textContent = String(days).padStart(2, "0");
+  $("hours").textContent = String(hours).padStart(2, "0");
+  $("minutes").textContent = String(minutes).padStart(2, "0");
+  $("seconds").textContent = String(seconds).padStart(2, "0");
+
+  const hoursLeft = Math.ceil(remaining / 3600000);
+
+  if (hoursLeft <= 1) {
+    $("headline").textContent = "The final moments are here.";
+    $("intro").textContent =
+      "Every second brings us closer to your special day. ♡";
+
+    const minutesLeft = Math.ceil(remaining / 60000);
+
+    $("message").textContent =
+      minutesLeft + " minute" +
+      (minutesLeft === 1 ? "" : "s") +
+      " to go. Almost your day. ♡";
+
+  } else {
+    const index = Math.floor(now / 3600000) % sweetMessages.length;
+
+    if (index !== lastMessageIndex) {
+      $("message").textContent = sweetMessages[index];
+      lastMessageIndex = index;
+    }
+  }
 }
 
-/*
- Show a notification through the service worker.
- This is more suitable for mobile browsers than new Notification().
-*/
-async function notify(title, body) {
- if (!notificationsEnabled) return false;
- if (Notification.permission !== "granted") return false;
+function showBirthday() {
+  if (birthdayShown) return;
 
- try {
-  const registration =
-   serviceWorkerRegistration || await navigator.serviceWorker.ready;
+  birthdayShown = true;
 
-  await registration.showNotification(title, {
-   body: body,
-   tag: "a-little-closer-" + Date.now(),
-   renotify: true,
-   data: { url: location.href }
-  });
-
-  return true;
- } catch (error) {
-  console.error("Notification error:", error);
-  $("status").textContent =
-   "A notification could not be shown. Check browser and phone notification settings.";
-  return false;
- }
-}
-
-/*
- Enable notifications.
- Permission requests must be triggered by a user action.
-*/
-$("enable").addEventListener("click", async () => {
- const button = $("enable");
- button.disabled = true;
-
- try {
-  if (!("Notification" in window)) {
-   $("status").textContent =
-    "This browser does not support notifications. The countdown still works.";
-   return;
-  }
-
-  if (!("serviceWorker" in navigator)) {
-   $("status").textContent =
-    "This browser does not support the service worker needed for mobile notifications.";
-   return;
-  }
-
-  const permission = await Notification.requestPermission();
-
-  if (permission !== "granted") {
-   notificationsEnabled = false;
-   $("status").textContent =
-    "Notifications were not allowed. You can still watch the countdown here.";
-   return;
-  }
-
-  const registration = await registerServiceWorker();
-
-  if (!registration) return;
-
-  notificationsEnabled = true;
-
-  $("status").textContent =
-   "Notifications are enabled on this device. Tap Test notification to check them. ♡";
-
-  await notify(
-   "Reminders are on ✦",
-   "Your countdown is ready. Tap the test button to check notifications. ♡"
-  );
-
- } catch (error) {
-  console.error(error);
-  $("status").textContent =
-   "Something went wrong. Refresh the page and check your browser settings.";
- } finally {
-  button.disabled = false;
- }
-});
-
-/* Send an immediate test notification. */
-$("testNotification").addEventListener("click", async () => {
- if (!("Notification" in window)) {
-  $("status").textContent =
-   "This browser does not support notifications.";
-  return;
- }
-
- if (Notification.permission !== "granted") {
-  $("status").textContent =
-   "First tap Turn on reminders ✦ and allow notifications.";
-  return;
- }
-
- try {
-  const registration =
-   serviceWorkerRegistration || await registerServiceWorker();
-
-  if (!registration) return;
-
-  notificationsEnabled = true;
-
-  const success = await notify(
-   "A Little Closer ✦",
-   "It works! Your birthday countdown notification is ready. ♡"
-  );
-
-  if (success) {
-   $("status").textContent =
-    "Test notification sent. Check your phone's notification panel. ♡";
-  }
- } catch (error) {
-  console.error(error);
-  $("status").textContent =
-   "Test failed. Refresh the page and check your notification settings.";
- }
-});
-
-/* Keep the tiny note toggle working. */
-$("showNote").addEventListener("click", () => {
- $("note").classList.toggle("hidden");
-});
-
-/* Countdown and scheduled reminders. */
-function update() {
- const now = Date.now();
- let remaining = Math.max(0, target - now);
-
- const days = Math.floor(remaining / 86400000);
- remaining %= 86400000;
-
- const hours = Math.floor(remaining / 3600000);
- remaining %= 3600000;
-
- const minutes = Math.floor(remaining / 60000);
- const seconds = Math.floor((remaining % 60000) / 1000);
-
- $("days").textContent = String(days).padStart(2, "0");
- $("hours").textContent = String(hours).padStart(2, "0");
- $("minutes").textContent = String(minutes).padStart(2, "0");
- $("seconds").textContent = String(seconds).padStart(2, "0");
-
- const d = new Date(now);
-
- const hourKey = [
-  d.getFullYear(),
-  d.getMonth(),
-  d.getDate(),
-  d.getHours()
- ].join("-");
-
- const minuteKey = hourKey + "-" + d.getMinutes();
-
- /*
- Hourly reminders before 11 PM on October 24.
- These reminders only run while this page's JavaScript is running.
-*/
- if (now < finalHour) {
-  if (previousHour !== null && hourKey !== previousHour) {
-   const left = Math.ceil((target - now) / 3600000);
-
-   notify(
-    "A little birthday reminder ✦",
-    left + " hours to go until your day. ♡"
-   );
-
-   $("message").textContent =
-    sweetMessages[Math.floor(now / 3600000) % sweetMessages.length];
-  }
-
-  previousHour = hourKey;
- }
-
- /*
- Minute-by-minute reminders during the final hour.
-*/
- if (now >= finalHour && now < target) {
-  const left = Math.ceil((target - now) / 60000);
-
-  if (minuteKey !== previousMinute) {
-   if (previousMinute !== null) {
-    notify(
-     "The final countdown 💗",
-     left + " minute" + (left === 1 ? "" : "s") + " to go!"
-    );
-   }
-
-   $("message").textContent =
-    left + " minute" + (left === 1 ? "" : "s") +
-    " to go. Almost your day. ♡";
-
-   $("headline").textContent = "The final hour is here.";
-   $("intro").textContent = "Every minute brings us closer to your day.";
-
-   previousMinute = minuteKey;
-  }
- }
-
- /*
- Birthday reveal.
- The reveal happens when the page is open and the timer updates.
-*/
- if (now >= target) {
   $("headline").textContent = "The wait is over.";
-  $("intro").textContent = "Today is all about you.";
+  $("intro").textContent = "Today is all about you, Adrija. ♡";
   $("message").textContent =
-   "The countdown has turned into a celebration. ♡";
+    "The countdown has turned into a celebration. Happy Birthday! ✨";
 
+  $("timer").classList.add("hidden");
   $("birthday").classList.remove("hidden");
-  $("enable").classList.add("hidden");
-  $("testNotification").classList.add("hidden");
 
-  if (!birthdayNotified) {
-   birthdayNotified = true;
-
-   notify(
-    "Happy Birthday, Adrija! 🎂",
-    "Your day is finally here. Open the page for your birthday surprise. ♡"
-   );
-  }
- }
+  /*
+   Scroll to the birthday reveal only when the countdown
+   reaches zero while the page is already open.
+  */
+  $("birthday").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 }
 
-/* Decorative stars. */
-for (let i = 0; i < 45; i++) {
- const s = document.createElement("span");
- s.className = "star";
- s.style.left = Math.random() * 100 + "%";
- s.style.top = Math.random() * 100 + "%";
- s.style.animationDelay = Math.random() * 3 + "s";
- $("stars").appendChild(s);
+/* Create the starry background. */
+for (let i = 0; i < 65; i++) {
+  const star = document.createElement("span");
+
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 3 + "s";
+  star.style.animationDuration = (1.5 + Math.random() * 3) + "s";
+
+  $("stars").appendChild(star);
 }
 
-/*
- Register the service worker, then start the countdown.
-*/
-registerServiceWorker();
-update();
-setInterval(update, 1000);
+/* Show the birthday message immediately if opened after midnight. */
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
+
 </body>
 </html>
 
